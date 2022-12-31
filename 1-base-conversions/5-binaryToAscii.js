@@ -23,6 +23,20 @@ const binaryStringToArray = str => {
 
 const binaryToAscii = str => {
   // Your code here
+  let bitArr = binaryStringToArray(str);
+  let asciiVar = [];
+  bitArr.forEach(byte =>{
+    let sum = 0;
+    for(let i = byte.length - 1, j = 0; i >= 0, j < byte.length; i--, j++){
+      ele = byte[i];
+      let num = 2 ** j * Number(ele);
+      sum += num;
+    }
+    asciiVar.push(sum);
+  })
+
+  return String.fromCharCode(...asciiVar);
+
 };
 
 /******************************************************************************/

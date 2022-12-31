@@ -8,7 +8,29 @@ const addZeros = require('../utils/addZeros');
 
 const asciiTo8bit = str => {
   // Your code here
+  let arr = str.split("");
+  bitArr = [];
+  arr.forEach((ele, i) =>{
+    let dec = str.charCodeAt(i);
+    let bin = convertToBin(dec);
+    let bit = addZeros(bin, 8);
+    bitArr.push(bit);
+  })
+  return bitArr.join("");
 };
+
+const convertToBin = element =>{
+  let bin = [];
+
+  while(element > 0){
+    let binPart = (element % 2).toString();
+    bin.push(binPart);
+    element = Math.floor(element / 2);
+  }
+  rev = bin.reverse().join("");
+  return rev;
+
+}
 
 /******************************************************************************/
 
